@@ -5,15 +5,17 @@ const intialGameBoard = [
   [null, null, null],
 ];
 
-const GameBoard = () => {
+const GameBoard = ({ onSelectBox, activePlayerSymbol }) => {
   const [symbol, setSymbol] = useState(intialGameBoard);
 
   const handleClickedBox = (rowIndex, colIndex) => {
     setSymbol((symbolSet) => {
       const updatedBoard = [...symbolSet.map((innerArr) => [...innerArr])];
-      updatedBoard[rowIndex][colIndex] = "X";
+      updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
       return updatedBoard;
     });
+
+    onSelectBox();
   };
 
   return (

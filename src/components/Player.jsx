@@ -13,7 +13,7 @@ const Player = (prop) => {
   };
 
   return (
-    <>
+    <li className={prop.isActive ? "active" : undefined}>
       <span className="player">
         {!isEditing && <span className="player-name"> {playerName}</span>}
         {isEditing && (
@@ -24,7 +24,7 @@ const Player = (prop) => {
         <span className="player-symbol">{[prop.symbol]}</span>
       </span>
       <button onClick={handleClick}>{isEditing ? "Save" : "Edit"}</button>
-    </>
+    </li>
   );
 };
 
